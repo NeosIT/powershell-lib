@@ -13,7 +13,7 @@ $config = @{
 
 . .\monitoring\Prometheus.ps1
 
-#prom = New-Prometheus-Exporter $config "groupnames"
+$prom = New-Prometheus-Exporter $config "groupnames"
 
 $mBackupStatus = $prom.AddMetric("backup_status", 1)
 $mGroupNameConvention = $prom.AddMetric("groupname_convention", 1.100)
