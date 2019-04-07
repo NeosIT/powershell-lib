@@ -1,0 +1,128 @@
+@{
+	ActiveDirectory = @{
+		Groups = @{
+			ForceNamingConvention = @{
+				CheckEnable = $False
+				
+				# Whitelist DNs of valid groups. Do NOT add you wrong-named group into it!
+				Whitelist = @(
+					"CN=Administratoren,CN=Builtin,DC=test,DC=ad",
+					"CN=Benutzer,CN=Builtin,DC=test,DC=ad",
+					"CN=Gäste,CN=Builtin,DC=test,DC=ad",
+					"CN=Druck-Operatoren,CN=Builtin,DC=test,DC=ad",
+					"CN=Sicherungs-Operatoren,CN=Builtin,DC=test,DC=ad",
+					"CN=Replikations-Operator,CN=Builtin,DC=test,DC=ad",
+					"CN=Remotedesktopbenutzer,CN=Builtin,DC=test,DC=ad",
+					"CN=Netzwerkkonfigurations-Operatoren,CN=Builtin,DC=test,DC=ad",
+					"CN=Leistungsüberwachungsbenutzer,CN=Builtin,DC=test,DC=ad",
+					"CN=Leistungsprotokollbenutzer,CN=Builtin,DC=test,DC=ad",
+					"CN=Distributed COM-Benutzer,CN=Builtin,DC=test,DC=ad",
+					"CN=IIS_IUSRS,CN=Builtin,DC=test,DC=ad",
+					"CN=Kryptografie-Operatoren,CN=Builtin,DC=test,DC=ad",
+					"CN=Ereignisprotokollleser,CN=Builtin,DC=test,DC=ad",
+					"CN=Zertifikatdienst-DCOM-Zugriff,CN=Builtin,DC=test,DC=ad",
+					"CN=RDS-Remotezugriffsserver,CN=Builtin,DC=test,DC=ad",
+					"CN=RDS-Endpunktserver,CN=Builtin,DC=test,DC=ad",
+					"CN=RDS-Verwaltungsserver,CN=Builtin,DC=test,DC=ad",
+					"CN=Hyper-V-Administratoren,CN=Builtin,DC=test,DC=ad",
+					"CN=Zugriffssteuerungs-Unterstützungsoperatoren,CN=Builtin,DC=test,DC=ad",
+					"CN=Remoteverwaltungsbenutzer,CN=Builtin,DC=test,DC=ad",
+					"CN=Domänencomputer,CN=Users,DC=test,DC=ad",
+					"CN=Domänencontroller,CN=Users,DC=test,DC=ad",
+					"CN=Schema-Admins,CN=Users,DC=test,DC=ad",
+					"CN=Organisations-Admins,CN=Users,DC=test,DC=ad",
+					"CN=Zertifikatherausgeber,CN=Users,DC=test,DC=ad",
+					"CN=Domänen-Admins,CN=Users,DC=test,DC=ad",
+					"CN=Domänen-Benutzer,CN=Users,DC=test,DC=ad",
+					"CN=Domänen-Gäste,CN=Users,DC=test,DC=ad",
+					"CN=Richtlinien-Ersteller-Besitzer,CN=Users,DC=test,DC=ad",
+					"CN=RAS- und IAS-Server,CN=Users,DC=test,DC=ad",
+					"CN=Server-Operatoren,CN=Builtin,DC=test,DC=ad",
+					"CN=Konten-Operatoren,CN=Builtin,DC=test,DC=ad",
+					"CN=Prä-Windows 2000 kompatibler Zugriff,CN=Builtin,DC=test,DC=ad",
+					"CN=Erstellungen eingehender Gesamtstrukturvertrauensstellung,CN=Builtin,DC=test,DC=ad",
+					"CN=Windows-Autorisierungszugriffsgruppe,CN=Builtin,DC=test,DC=ad",
+					"CN=Terminalserver-Lizenzserver,CN=Builtin,DC=test,DC=ad",
+					"CN=Zulässige RODC-Kennwortreplikationsgruppe,CN=Users,DC=test,DC=ad",
+					"CN=Abgelehnte RODC-Kennwortreplikationsgruppe,CN=Users,DC=test,DC=ad",
+					"CN=Schreibgeschützte Domänencontroller,CN=Users,DC=test,DC=ad",
+					"CN=Schreibgeschützte Domänencontroller der Organisation,CN=Users,DC=test,DC=ad",
+					"CN=Klonbare Domänencontroller,CN=Users,DC=test,DC=ad",
+					"CN=Protected Users,CN=Users,DC=test,DC=ad",
+					"CN=DnsAdmins,CN=Users,DC=test,DC=ad",
+					"CN=DnsUpdateProxy,CN=Users,DC=test,DC=ad",
+					"CN=Organization Management,OU=Microsoft Exchange Security Groups,DC=test,DC=ad",
+					"CN=Recipient Management,OU=Microsoft Exchange Security Groups,DC=test,DC=ad",
+					"CN=View-Only Organization Management,OU=Microsoft Exchange Security Groups,DC=test,DC=ad",
+					"CN=Public Folder Management,OU=Microsoft Exchange Security Groups,DC=test,DC=ad",
+					"CN=UM Management,OU=Microsoft Exchange Security Groups,DC=test,DC=ad",
+					"CN=Help Desk,OU=Microsoft Exchange Security Groups,DC=test,DC=ad",
+					"CN=Records Management,OU=Microsoft Exchange Security Groups,DC=test,DC=ad",
+					"CN=Discovery Management,OU=Microsoft Exchange Security Groups,DC=test,DC=ad",
+					"CN=Server Management,OU=Microsoft Exchange Security Groups,DC=test,DC=ad",
+					"CN=Delegated Setup,OU=Microsoft Exchange Security Groups,DC=test,DC=ad",
+					"CN=Hygiene Management,OU=Microsoft Exchange Security Groups,DC=test,DC=ad",
+					"CN=Compliance Management,OU=Microsoft Exchange Security Groups,DC=test,DC=ad",
+					"CN=Exchange Servers,OU=Microsoft Exchange Security Groups,DC=test,DC=ad",
+					"CN=Exchange Trusted Subsystem,OU=Microsoft Exchange Security Groups,DC=test,DC=ad",
+					"CN=Managed Availability Servers,OU=Microsoft Exchange Security Groups,DC=test,DC=ad",
+					"CN=Exchange Windows Permissions,OU=Microsoft Exchange Security Groups,DC=test,DC=ad",
+					"CN=ExchangeLegacyInterop,OU=Microsoft Exchange Security Groups,DC=test,DC=ad",
+					"CN=Exchange Install Domain Servers,CN=Microsoft Exchange System Objects,DC=test,DC=ad",
+					"CN=DHCP-Benutzer,CN=Users,DC=test,DC=ad",
+					"CN=DHCP-Administratoren,CN=Users,DC=test,DC=ad",
+					"CN=SophosUser,CN=Users,DC=test,DC=ad"
+					"CN=SophosPowerUser,CN=Users,DC=test,DC=ad", 
+					"CN=SophosAdministrator,CN=Users,DC=test,DC=ad"
+					"CN=SophosOnAccess,CN=Users,DC=test,DC=ad"
+				)
+			}
+		}
+		
+		Computer = @{
+			CheckEnable = $False
+			
+			# base DN for all clients/computers
+			BaseDN = ",OU=Interne Infrastruktur,DC=test,DC=ad"
+			
+			# Whitelist DNs of valid computers. Do NOT add you wrong-located computer into it!
+			# This array should just contain the domain controller b/c it can not easily be moved into another OU
+			Whitelist = @(
+				"CN=DC1,OU=Domain Controllers,DC=test,DC=ad"
+			)
+		}
+	}
+	
+	Exchange = @{
+		DistributionGroups = @{
+			CheckEnable = $False
+		}
+	}
+	
+	Backup = @{
+		System = @{
+			CheckEnable = $False
+			
+			# Oldest backup maximum x days
+			Oldest = 2
+		}
+		
+		Exchange = @{
+			CheckEnable = $False
+			
+			# Oldest Exchange backup in days
+			Oldest = 1
+		}
+	}
+	
+	# Enable check_mk console output
+	CheckMk = @{
+	}
+	
+	# Enable Prometheus export for wmi_exporter
+	Prometheus = @{
+		AdditionalLabels = @{"hostname" = $env:ComputerName; }
+		WithHostname = $true
+		ExportDirectory = "c:/program files/wmi_exporter/textfile_inputs"
+	}
+}
