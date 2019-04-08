@@ -191,7 +191,8 @@ class NeosIT_Monitoring_Prometheus_Exporter {
 		$useMetrics = @()
 
 		foreach ($metric in $this.metrics) {
-			$useMetrics += "$($metric.name){$($metric.labels)} $($metric.value) $($metric.timestamp)"
+			# metric timestamp is explicitly not exported as it is not supported in .prom files
+			$useMetrics += "$($metric.name){$($metric.labels)} $($metric.value)"
 		}
 		
 		if ($exportDirectory -and !(Test-Path -Path $exportDirectory)) {
