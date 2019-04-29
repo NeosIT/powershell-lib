@@ -1,0 +1,3 @@
+Get-ChildItem -Path "C:\Program Files\Microsoft\Exchange Server\V15\Logging" -Recurse *.log -force  | where {$_.lastwritetime -lt (get-date).adddays(-3)} | Remove-Item -force
+Get-ChildItem -Path "C:\Program Files\Microsoft\Exchange Server\V15\Logging" -Recurse *.blg -force  | where {$_.lastwritetime -lt (get-date).adddays(-3)} | Remove-Item -force
+Get-ChildItem -Path "C:\Program Files\Microsoft\Exchange Server\V15\TransportRoles\Logs" -Recurse *.log -force  | where {$_.lastwritetime -lt (get-date).adddays(-3)} | Remove-Item -force
